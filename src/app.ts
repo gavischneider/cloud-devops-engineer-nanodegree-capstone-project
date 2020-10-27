@@ -2,9 +2,11 @@ import express, {Application, Request, Response} from 'express';
 
 const randomSong = require('@chatandshare/random-song');
 
+require('dotenv').config();
+
 const app: Application = express();
 
-const random = new randomSong("5a6a3319d10b8dd4593f110d6db57172");
+const random = new randomSong(process.env.API_KEY);
 
 // Home route
 app.get('/', (req: Request, res: Response) => {

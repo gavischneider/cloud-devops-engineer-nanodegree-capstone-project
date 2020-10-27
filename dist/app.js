@@ -14,8 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const randomSong = require('@chatandshare/random-song');
+require('dotenv').config();
 const app = express_1.default();
-const random = new randomSong("5a6a3319d10b8dd4593f110d6db57172");
+const random = new randomSong(process.env.API_KEY);
 // Home route
 app.get('/', (req, res) => {
     res.send("Welcome to my capstone project! To get a random song, go to the '/random' route.");
