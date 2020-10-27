@@ -1,22 +1,23 @@
-import express, {Application, Request, Response, NextFunction} from 'express';
-// import randomSong from '@chatandshare/random-song';
+import express, {Application, Request, Response} from 'express';
+
 const randomSong = require('@chatandshare/random-song');
 
 const app: Application = express();
 
 const random = new randomSong("5a6a3319d10b8dd4593f110d6db57172");
 
-app.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.send("Welcome to my capstone project!");
+// Home route
+app.get('/', (req: Request, res: Response) => {
+    res.send("Welcome to my capstone project! To get a random song, go to the '/random' route.");
 });
 
-app.get('/random', async (req: Request, res: Response, next: NextFunction) => {
-    
+// Random song route
+app.get('/random', async (req: Request, res: Response) => {
  
-    let very_random_song = await random.song();
+    let randomSong = await random.song();
         
-    console.log(very_random_song); // Outputs a random song
-    res.send(very_random_song);
+    console.log(randomSong);
+    res.send(randomSong);
     
 })
 
