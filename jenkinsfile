@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+
+
+        stage('create kube config file') {
+            steps {
+                withAWS(region: 'us-east-1', credentials: 'aws_credentials') {
+                    sh '''
+                                aws eks --region us-east-1 update-kubeconfig --name capstone
+                        '''
+                }
+            }
+        }
+    }
+}

@@ -11,7 +11,7 @@ dockerpath="gavischneider/random-song"
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker login
-docker image tag random-song:latest $dockerpath
+docker image tag random-song:1.0 $dockerpath
 
 # Step 3:
 # Push image to a docker repository
