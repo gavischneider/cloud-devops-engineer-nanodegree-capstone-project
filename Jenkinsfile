@@ -13,5 +13,12 @@ pipeline {
       }
     }
 
+    stage('Build Docker image') {
+      steps {
+        echo 'Building the Docker container...'
+        sh 'app = docker.build("gavischneider/random-song", "-f Dockerfile .")'
+      }
+    }
+
   }
 }
