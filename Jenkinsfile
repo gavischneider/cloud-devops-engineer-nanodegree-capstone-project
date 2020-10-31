@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Lint TypeScript') {
+      steps {
+        sh 'npm run lint'
+      }
+    }
+
   }
 }
