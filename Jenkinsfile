@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  enviroment {
-    dockerImage = ''
-  }
   stages {
     stage('Install dependencies') {
       steps {
