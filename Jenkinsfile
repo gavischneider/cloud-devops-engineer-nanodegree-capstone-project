@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  enviroment {
+    dockerImage = ''
+  }
   stages {
     stage('Install dependencies') {
       steps {
@@ -16,15 +19,16 @@ pipeline {
     stage('Build Docker image') {
       steps {
         echo 'Building the Docker container...'
-        sh 'app = docker.build("gavischneider/random-song", "-f Dockerfile .")'
+        sh 'dockerImage = docker.build("gavischneider/random-song", "-f Dockerfile .")'
       }
     }
     
     stage('Upload container to Docker Registry') {
       steps {
-        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-        echo 'Pushing image to Docker hub'
-        sh 'docker push gavischneider/random-song'
+        script {
+          docker.withRegistry( '', 'dockerhub' ) {
+            dockerImage.push()
+          }
         }
       }
     }
