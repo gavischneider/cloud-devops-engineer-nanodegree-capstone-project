@@ -1,15 +1,12 @@
 pipeline {
-    agent any
-    environment {
-        CI = 'true'
+  agent any
+  stages {
+    stage('Install dependencies') {
+      steps {
+        sh 'npm i'
+      }
     }
-    stages {
-        stage('Install dependencies') {
-             steps {
-                 sh 'npm i'
-             }
-        }
-        stage('Lint Typescript') {
+    stage('Lint Typescript') {
               steps {
                   sh 'npm run lint'
               }
@@ -50,5 +47,6 @@ pipeline {
                 }
             }
         }
-    }
+
+  }
 }
