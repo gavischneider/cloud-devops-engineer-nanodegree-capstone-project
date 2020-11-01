@@ -31,7 +31,7 @@ pipeline {
       }
     }
 
-    stage('create kube config file') {
+    stage('Create kube config file') {
       steps {
         withAWS(region: 'us-east-1', credentials: 'aws_credentials') {
           sh '''
