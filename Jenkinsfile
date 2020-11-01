@@ -16,7 +16,9 @@ pipeline {
     stage('Build Docker image') {
       steps {
         echo 'Building the Docker container...'
-        sh 'dockerImage = docker.build("gavischneider/random-song", "-f Dockerfile .")'
+        script {
+          dockerImage = docker.build("gavischneider/random-song", "-f Dockerfile .")
+        }
       }
     }
 
