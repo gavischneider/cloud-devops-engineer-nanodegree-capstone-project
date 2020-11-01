@@ -15,13 +15,8 @@ app.get('/', (req: Request, res: Response) => {
 
 // Random song route
 app.get('/random', async (req: Request, res: Response) => {
- 
-    let randomSong = await random.song();
-        
-    console.log(randomSong);
-    res.send(randomSong);
-    
+    const song = await random.song();
+    console.log(song);
+    res.send(song);
 })
-
 app.listen(8080, () => console.log('Server running on port 8080'));
-/////
