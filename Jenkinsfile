@@ -13,6 +13,13 @@ pipeline {
       }
     }
 
+    stage('Build the application') {
+      steps {
+        echo 'TypeScript --> JavaScript'
+        sh 'npm run build'
+      }
+    }
+
     stage('Lint TypeScript') {
       steps {
         sh 'npm run lint'
