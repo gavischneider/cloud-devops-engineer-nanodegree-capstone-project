@@ -7,6 +7,12 @@ pipeline {
       }
     }
 
+    stage('Audit the application') {
+      steps {
+        sh 'npm audit'
+      }
+    }
+
     stage('Lint TypeScript') {
       steps {
         sh 'npm run lint'
