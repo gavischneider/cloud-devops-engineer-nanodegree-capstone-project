@@ -7,12 +7,6 @@ pipeline {
       }
     }
 
-    stage('Audit the application') {
-      steps {
-        sh 'npm audit'
-      }
-    }
-
     stage('Build the application') {
       steps {
         echo 'TypeScript --> JavaScript'
