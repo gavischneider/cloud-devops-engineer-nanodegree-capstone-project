@@ -47,10 +47,10 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying to EKS cluster'
-        withAWS(region: 'us-east-1', credentials: 'aws_credentials') {
+        withAWS(region: 'us-east-1', credentials: 'some_access_id') {
           echo 'Deploying to EKS cluster'
           sh 'aws eks --region us-east-1 update-kubeconfig --name capstone'
-          sh 'kubectl config use-context arn:aws:cloudformation:us-east-1:963540097012:stack/eksctl-capstone-cluster/2220dda0-1ac9-11eb-a18e-122ae4ce5d77'
+          sh 'kubectl config use-context arn:aws:iam::963540097012:role/eksctl-capstone-cluster-ServiceRole-1CZNQEXOTXU3Y'
           sh 'kubectl apply -f deployment.yml'
         }
 
