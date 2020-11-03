@@ -50,7 +50,7 @@ pipeline {
         withAWS(region: 'us-east-1', credentials: 'some_access_id') {
           echo 'Deploying to EKS cluster'
           sh 'aws eks --region us-east-1 update-kubeconfig --name capstone'
-          sh 'kubectl config use-context arn:aws:iam::963540097012:role/eksctl-capstone-cluster-ServiceRole-1CZNQEXOTXU3Y'
+          sh 'kubectl config use-context arn:aws:eks:us-east-1:963540097012:cluster/capstone'
           sh 'kubectl apply -f deployment.yml'
         }
 
