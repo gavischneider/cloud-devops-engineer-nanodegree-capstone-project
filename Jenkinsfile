@@ -59,15 +59,10 @@ pipeline {
           sh 'aws eks --region us-east-1 update-kubeconfig --name capstone'
           sh 'kubectl config use-context arn:aws:eks:us-east-1:963540097012:cluster/capstone'
           sh 'kubectl apply -f deployment.yml'
+          sh 'kubectl get pods'
+          sh 'kubectl get services'
         }
 
-      }
-    }
-
-    stage('Check pods') {
-      steps {
-        sh 'kubectl get pods'
-        sh 'kubectl get services'
       }
     }
 
