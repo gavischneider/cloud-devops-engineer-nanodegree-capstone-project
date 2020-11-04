@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: capstone-project
-          image: random-song:1.0
+          image: gavischneider/random-song
           imagePullPolicy: "Always"
           ports:
             - containerPort: 8080
