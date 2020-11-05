@@ -24,7 +24,7 @@ pipeline {
       steps {
         echo 'Building the Docker container...'
         script {
-          dockerImage = docker.build("gavischneider/random-song", "-f Dockerfile .")
+          dockerImage = docker.build("gavischneider/capstone-random-song", "-f Dockerfile .")
         }
       }
     }
