@@ -29,6 +29,7 @@ In the end, the app is deployed to the cluster and accessible to users.
 - TypeScript
 - Node.js
 - Express
+- MusixMatch API
 - AWS
 - Jenkins
 - Docker
