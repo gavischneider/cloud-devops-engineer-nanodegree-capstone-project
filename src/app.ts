@@ -19,10 +19,10 @@ app.get("/", (req: Request, res: Response) => {
 app.get("/random", async (req: Request, res: Response) => {
   try {
     const song = await random.song();
-      console.log(song);
+     console.log(song);
     res.send(song);
   } catch (error) {
-      console.log(error);
+     console.log(error);
   }
 });
 app.listen(8080, () => console.log("Server running on port 8080"));
