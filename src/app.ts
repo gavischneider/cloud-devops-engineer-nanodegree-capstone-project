@@ -18,7 +18,7 @@ app.get("/", (req: Request, res: Response) => {
 // Random song route
 app.get("/random", async (req: Request, res: Response) => {
   try {
-    const song = await random.song()/;
+    const song = await random.song();
     console.log(song);
     res.send(song);
   } catch (error) {
